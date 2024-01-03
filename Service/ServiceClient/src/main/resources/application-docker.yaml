@@ -1,0 +1,29 @@
+
+server:
+  port: 8088
+
+spring:
+  application:
+    name: SERVICE-CLIENT
+  cloud:
+    discovery:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://postgres:5432/clients
+    username: hmayda
+    password: hmayda
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    bootstrap-servers: kafka:9092
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
+      fetch-registry: true
+      register-with-eureka: true
+      enabled: true
+

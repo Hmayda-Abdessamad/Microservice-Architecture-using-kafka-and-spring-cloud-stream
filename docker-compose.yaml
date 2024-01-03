@@ -1,0 +1,135 @@
+version: "3"
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: hmayda
+      POSTGRES_PASSWORD: hmayda
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - postgres
+
+
+  eureka:
+    container_name: eureka
+    image: hmaydaabdo/eureka:0.1
+    depends_on:
+      - postgres
+    ports:
+      - "8761:8761"
+    networks:
+      - spring
+
+  gateway:
+    container_name: gateway
+    image: hmaydaabdo/gateway:0.1
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - eureka
+    ports:
+      - "8089:8089"
+    networks:
+      - spring
+  clients:
+    container_name: clients
+    image: client:kafka
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - gateway
+    ports:
+      - "8088:8088"
+    networks:
+      - spring
+      - postgres
+
+  voitures:
+    container_name: voitures
+    image: voiture:kafka
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - gateway
+      - clients
+    ports:
+      - "8090:8090"
+    networks:
+      - spring
+      - postgres
+    restart: on-failure
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:6.0.14
+    container_name: zookeeper
+    ports:
+      - '22181:2181'
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - spring
+
+  kafka:
+    image: confluentinc/cp-kafka:6.0.14
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - '29092:29092'
+      - '9092:9092'
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: LISTENER_DOCKER_INTERNAL://kafka:9092,LISTENER_DOCKER_EXTERNAL://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_DOCKER_INTERNAL:PLAINTEXT,LISTENER_DOCKER_EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_DOCKER_INTERNAL
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - spring
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - 8085:8080
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      DYNAMIC_CONFIG_ENABLED: 'true'
+    networks:
+      - spring
+
+networks:
+  postgres:
+    driver: bridge
+  spring:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:

@@ -1,0 +1,139 @@
+<mxfile host="app.diagrams.net" modified="2023-12-07T20:58:07.561Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="IgEExIpndqPswBnsy65M" version="22.1.7" type="device">
+  <diagram name="Page-1" id="QkBChleBQmYo4z_YjyeY">
+    <mxGraphModel dx="1050" dy="587" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.424;entryY=1.001;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="hyHswh8VnqFrSJ8voYN_-1" target="hyHswh8VnqFrSJ8voYN_-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="610" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="760" />
+              <mxPoint x="400" y="610" />
+              <mxPoint x="399" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-1" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Service Client&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="82.5" y="640" width="277.5" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-2" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-logos/24/bxl-spring-boot-128.png" vertex="1" parent="1">
+          <mxGeometry x="136" y="670" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hyHswh8VnqFrSJ8voYN_-4" target="hyHswh8VnqFrSJ8voYN_-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="480" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-4" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="557" y="640" width="270" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-5" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Service Voiture&lt;/font&gt;" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-logos/24/bxl-spring-boot-128.png" vertex="1" parent="1">
+          <mxGeometry x="640" y="660" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.568;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="hyHswh8VnqFrSJ8voYN_-51" target="hyHswh8VnqFrSJ8voYN_-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="200" as="sourcePoint" />
+            <mxPoint x="240" y="460" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="240" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.472;entryY=-0.011;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="hyHswh8VnqFrSJ8voYN_-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="280" as="sourcePoint" />
+            <mxPoint x="683.75" y="560" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="500" y="281" />
+              <mxPoint x="684" y="281" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hyHswh8VnqFrSJ8voYN_-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430.0999999999999" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-16" value="" style="points=[[0.35,0,0],[0.98,0.51,0],[1,0.71,0],[0.67,1,0],[0,0.795,0],[0,0.65,0]];verticalLabelPosition=bottom;sketch=0;html=1;verticalAlign=top;aspect=fixed;align=center;pointerEvents=1;shape=mxgraph.cisco19.user;fillColor=#005073;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="384" y="10" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-33" value="Request to the service&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="146.25" y="248" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-34" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/docker-128.png" vertex="1" parent="1">
+          <mxGeometry x="100" y="640" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-35" value="&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Clients DB&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="82.5" y="920" width="277.5" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-36" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server_Group.svg;" vertex="1" parent="1">
+          <mxGeometry x="170" y="960" width="115" height="130.33" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-37" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/docker-128.png" vertex="1" parent="1">
+          <mxGeometry x="100" y="930" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-38" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/docker-128.png" vertex="1" parent="1">
+          <mxGeometry x="580" y="640" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-39" value="&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Voitures DB&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520.75" y="920" width="290" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-40" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/Azure_Database_PostgreSQL_Server_Group.svg;" vertex="1" parent="1">
+          <mxGeometry x="620" y="950" width="115" height="130.33" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-41" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/docker-128.png" vertex="1" parent="1">
+          <mxGeometry x="531.75" y="930" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-42" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="hyHswh8VnqFrSJ8voYN_-35" target="hyHswh8VnqFrSJ8voYN_-1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="360" y="950" as="sourcePoint" />
+            <mxPoint x="460" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-44" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.614;exitY=-0.006;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="hyHswh8VnqFrSJ8voYN_-39" target="hyHswh8VnqFrSJ8voYN_-4">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="360" y="950" as="sourcePoint" />
+            <mxPoint x="460" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-45" value="&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Service Discovery&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="440" width="280" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-49" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-logos/24/bxl-spring-boot-128.png" vertex="1" parent="1">
+          <mxGeometry x="360" y="440" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-50" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/docker-128.png" vertex="1" parent="1">
+          <mxGeometry x="291.75" y="450" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-51" value="&lt;font size=&quot;3&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;API GATEWAY&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="140" width="280" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-52" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/boxicons-logos/24/bxl-spring-boot-128.png" vertex="1" parent="1">
+          <mxGeometry x="376" y="140" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-53" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/docker-128.png" vertex="1" parent="1">
+          <mxGeometry x="310" y="140" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-55" value="Request to the service&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="585" y="248" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-56" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.591;exitY=0.014;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="hyHswh8VnqFrSJ8voYN_-49" target="hyHswh8VnqFrSJ8voYN_-51">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="430" as="sourcePoint" />
+            <mxPoint x="480" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-58" value="&lt;font size=&quot;3&quot;&gt;Register&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="375" y="680" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hyHswh8VnqFrSJ8voYN_-59" value="&lt;font size=&quot;3&quot;&gt;Register&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="455" y="690" width="80" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

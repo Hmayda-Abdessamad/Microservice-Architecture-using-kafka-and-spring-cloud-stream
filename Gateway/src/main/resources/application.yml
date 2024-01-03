@@ -1,0 +1,39 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: Gateway
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: client
+          uri: lb://SERVICE-CLIENT
+          predicates:
+            - Path=/clients/**
+          filters:
+            - AuthenticationFilter
+        - id: voiture
+          uri: lb://SERVICE-VOITURE
+          predicates:
+            - Path=/voitures/**
+          filters:
+            - AuthenticationFilter
+        - id: auth
+          uri: lb://SERVICE-AUTH
+          predicates:
+            - Path=/auth/**
+          filters:
+            - AuthenticationFilter
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+    enabled: true

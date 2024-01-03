@@ -1,0 +1,21 @@
+
+server:
+  port: 8089
+
+spring:
+  application:
+    name: Gateway
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+    enabled: true
