@@ -1,11 +1,14 @@
 
-
+logging:
+  level:
+    web: error
 server:
   port: 8099
 
 spring:
   application:
     name: SERVICE-AUTH
+
   cloud:
     discovery:
       enabled: true

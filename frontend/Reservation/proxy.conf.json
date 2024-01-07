@@ -1,0 +1,13 @@
+{
+    "/api": [
+      {
+        "target": "http://localhost:8089",
+        "secure": false
+      },
+      {
+        "target": "http://localhost:8099",
+        "secure": true
+      }
+     
+    ]
+  }

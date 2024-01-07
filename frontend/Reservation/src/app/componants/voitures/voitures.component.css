@@ -1,0 +1,26 @@
+.card{
+
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+
+    margin: 1.25rem 0 1.25rem 0;
+    box-shadow:0 0.25rem .5rem #e6edef;
+
+    .card-head{
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .card-body{
+        padding: 1rem 1.5rem;
+    }
+}
+
+.badge-width {
+    display: inline-block; /* Ensure the span is treated as a block */
+    width: 200px; /* Set the desired width for the spans */
+    text-align: center; /* Optional: Center the text within the span */
+  }

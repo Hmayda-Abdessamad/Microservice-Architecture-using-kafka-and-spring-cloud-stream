@@ -80,5 +80,10 @@ public class VoitureServiceImpl implements VoitureService {
      return voitureRepository.save(voiture);
     }
 
+    @Override
+    public List<Voiture> voitureParClientId(Long id) {
+        return voitureRepository.findByClientId(id);
+    }
+
 
 }

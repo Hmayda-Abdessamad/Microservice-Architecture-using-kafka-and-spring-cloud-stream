@@ -5,6 +5,7 @@ import com.auth.security.dto.TokenG;
 import com.auth.security.entity.User;
 import com.auth.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,29 +25,31 @@ public class AuthServiceImpl implements AuthService {
     private AuthenticationManager authenticationManager;
 
     @Override
-    public String register(Register user) {
+    public Register register(Register user) {
         User user1=new User();
         user1.setNom(user.getNom());
         user1.setEmail(user.getEmail());
         user1.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user1);
-        return "register new user ";
+
+        return user;
+
+
     }
 
     @Override
     public String generateToken(TokenG tokenG) {
+
         String res;
         try{
-            Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(tokenG.getName(),tokenG.getPassword()));
+            Authentication authentication= authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(tokenG.getEmail(),tokenG.getPassword()));
             if(authentication.isAuthenticated()){
-
-                res= jwtService.generateToken(tokenG.getName());
+                res= jwtService.generateToken(tokenG.getEmail());
             }else {
-
                 throw   new RuntimeException("User invalid acces");
             }
         } catch (BadCredentialsException e){
-            res="err";
+            res="bad credential";
             System.out.println(e.getMessage());
         }
 

@@ -6,10 +6,12 @@ import com.microservices.voiture.Repository.VoitureRepository;
 import com.microservices.voiture.Service.ClientService;
 import com.microservices.voiture.Service.VoitureServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/voitures")
@@ -24,9 +26,20 @@ public class VoitureController {
 
 
     @PostMapping("/add")
-    public ResponseEntity<String> ajouterUneVoiture(@RequestParam  String marque,@RequestParam String matricule, @RequestParam String model){
-            String response= voitureService.ajouterVoiture(marque,matricule,model);
-            return ResponseEntity.ok(response);
+    public ResponseEntity<Object> ajouterUneVoiture(
+            @RequestParam String marque,
+            @RequestParam String matricule,
+            @RequestParam String model
+    ) {
+        voitureService.ajouterVoiture(marque,matricule,model);
+        String response = "Car added successfully";
+
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of(
+                "message", response,
+                "marque", marque,
+                "matricule", matricule,
+                "model", model
+        ));
     }
 
     @PutMapping("/edit")
@@ -38,9 +51,11 @@ public class VoitureController {
 
 
     @DeleteMapping("/delete")
-    public ResponseEntity<String> supprimerUneVoiture(@RequestParam Long id){
-        String response= voitureService.supprimerVoiture(id);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<Object> supprimerUneVoiture(@RequestParam Long id){
+        String success = voitureService.supprimerVoiture(id);
+
+        return ResponseEntity.ok().body("{\"message\": \"Car deleted successfully\"}");
+
     }
 
     @GetMapping
@@ -52,6 +67,12 @@ public class VoitureController {
     @GetMapping("/{id}")
     public ResponseEntity<Voiture> VoitureParID(@PathVariable long id){
         Voiture response= voitureService.voitureParId(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/client/{id}")
+    public ResponseEntity<List<Voiture>> VoitureParClient(@PathVariable long id){
+        List<Voiture> response= voitureService.voitureParClientId(id);
         return ResponseEntity.ok(response);
     }
 

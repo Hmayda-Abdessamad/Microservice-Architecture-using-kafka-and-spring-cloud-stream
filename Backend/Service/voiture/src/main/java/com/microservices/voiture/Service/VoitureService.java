@@ -15,7 +15,6 @@ public interface VoitureService {
 
     Voiture allouerUneVoiture(Long id_client,Long id_voiture);
 
-
-
+    List<Voiture> voitureParClientId(Long id);
 
 }

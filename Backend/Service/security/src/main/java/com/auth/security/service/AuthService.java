@@ -6,7 +6,7 @@ import com.auth.security.entity.User;
 
 public interface AuthService {
 
-    public String register(Register user);
+    public Register register(Register user);
     public String generateToken(TokenG name);
     public void validateToken(String token);
 }

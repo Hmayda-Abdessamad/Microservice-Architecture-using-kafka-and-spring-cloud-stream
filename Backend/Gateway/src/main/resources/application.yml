@@ -11,6 +11,8 @@ spring:
       discovery:
         locator:
           enabled: true
+
+
       routes:
         - id: client
           uri: lb://SERVICE-CLIENT

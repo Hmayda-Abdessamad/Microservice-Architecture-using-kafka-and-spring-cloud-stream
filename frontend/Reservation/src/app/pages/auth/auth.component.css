@@ -1,0 +1,11 @@
+.body{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../../assets/images/bgAuth.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(17, 20, 20);
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

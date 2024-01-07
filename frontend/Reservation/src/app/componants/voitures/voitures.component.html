@@ -1,0 +1,182 @@
+   
+
+
+
+<div class="card ">
+    <div class="card-head d-flex flex-column gap-2 m-2">
+
+
+      <ol class="breadcrumb fs-5 d-flex  justify-content-between">
+      
+        <i class="fa-solid fa-circle-plus" data-bs-toggle="modal" data-bs-target="#ajout"> Nouvelle Voiture</i>
+        <i class="fa-solid fa-filter" > Filter </i>
+        
+      </ol>
+
+      <div class="container">
+        <div class="row">
+        
+          <div class="col-lg-4">
+            <select class="form-select form-select-lg" aria-label=".form-select-lg example"  [(ngModel)]="state"  (change)="filterCarsByState()">
+              <option value="0" selected>Toutes les voitures</option>
+              <option value="1">disponible</option>
+              <option value="2">non disponibles</option>
+            </select>
+          </div>
+      
+          <div class="col-lg-4">
+            <select class="form-select form-select-lg" aria-label=".form-select-lg example" [(ngModel)]="selectedMarque"  (change)="filterCarsByMarque()">
+              <option value="0" selected>Toutes les marques</option>
+              <option value="BMW">BMW</option>
+              <option value="Mercedes">Mercedes</option>
+              <option value="Dacia">Dacia</option>
+              <option value="Ferrari">Ferrari</option>
+            </select>
+          </div>
+      
+          <div class="col-lg-4">
+            <select class="form-select form-select-lg" aria-label=".form-select-lg example" [(ngModel)]="model"  (change)="filterCarsByModel()">
+              <option value="0" selected>Tous les models</option>
+              <option value="2011" >2011</option>
+              <option value="2012">2012</option>
+              <option value="2015">2015</option>
+              <option value="2020 ">2020</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+
+
+    </div>
+    <div class="card-body">
+
+      <div *ngIf="!voitures || voitures.length<=0" class="container-fluid alert alert-warning text-center mb-3"  role="alert">
+        Aucune voiture disponible
+      </div>
+        <table class="table  table-light">
+            <thead class="text-center">
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Model</th>
+                <th scope="col">Matricule</th>
+                <th scope="col">Etat</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              
+            
+
+              <tr *ngFor="let voiture of voitures">
+                <th scope="row">{{voiture.id}}</th>
+                <td>{{voiture.marque}}</td>
+                <td>{{voiture.model}}</td>
+                <td>{{voiture.matricule}}</td>
+               
+                <td *ngIf="voiture.id_client==0"><span class="badge badge-width rounded-pill fs-5 bg-success">disponible</span></td>
+                <td *ngIf="voiture.id_client!=0"><span class="badge badge-width rounded-pill fs-5 bg-warning">non disponible</span></td>
+                <td class="d-flex gap-2 justify-content-center">
+                 
+                  <button *ngIf="voiture.id_client==0" type="button" data-bs-toggle="modal" data-bs-target="#allocation" (click)="setVoiture(voiture.id)" class="btn btn-secondary rounded-pill">Allouer</button>
+                  <a>
+                    <i (click)="SuppVoiture(voiture.id)" class="fa-solid fa-trash fs-1"></i>
+                  </a>  
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
+
+<!--   Modal d ajout de voiture  -->
+
+
+
+<div class="modal fade" id="ajout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">L'ajout d'une nouvelle voiture</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Marque:</label>
+            <select class="form-select" formControlName="marque" aria-label="Default select example">
+              <option value="BMW">BMW</option>
+              <option value="Mercedes">Mercedes</option>
+              <option value="Dacia">Dacia</option>
+              <option value="Ferrari">Ferrari</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Model:</label>
+            <select class="form-select" formControlName="model" aria-label="Default select example">
+              <option value="2011" >2011</option>
+              <option value="2012">2012</option>
+              <option value="2015">2015</option>
+              <option value="2020 ">2020</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Matricule:</label>
+            <input type="text" formControlName="matricule" class="form-control" id="recipient-name">
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Ajouter</button>
+          </div>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+<!--   Modal d allocation  de voiture  -->
+
+
+
+<div class="modal fade" id="allocation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Allocation de voiture</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="allocationForm" (ngSubmit)="Allouer()">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Client:</label>
+            <select class="form-select" formControlName="client_id"   aria-label="Default select example">
+            
+              <option *ngFor="let client of clients" [value]="client.id">
+                {{ client.nom }}
+              </option>
+              
+            </select>
+          </div>
+          
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Ajouter</button>
+          </div>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>

@@ -19,9 +19,10 @@ public class ClientController {
     ServiceClientImpl serviceClient;
 
     @PostMapping("/add")
-    ResponseEntity<String> ajouterUnClient(String nom,String prenom,Integer age){
+    ResponseEntity<Object> ajouterUnClient(String nom,String prenom,Integer age){
+
       String res=serviceClient.AjouterClient(nom,prenom,age);
-      return ResponseEntity.ok(res);
+      return ResponseEntity.ok().body("{\"message\": \"" + res + "\"}");
     }
 
 
@@ -35,7 +36,7 @@ public class ClientController {
     @DeleteMapping("/delete")
     ResponseEntity<String> suprimerUnClient(Long id){
         String res=serviceClient.SupprimerClient(id);
-        return ResponseEntity.ok(res);
+        return    ResponseEntity.ok().body("{\"message\": \"" + res + "\"}");
     }
 
     @GetMapping
@@ -49,6 +50,7 @@ public class ClientController {
         Client res=serviceClient.clientParId(id);
         return ResponseEntity.ok(res);
     }
+
 
     @PostMapping("/allouer")
     ResponseEntity<Reservation> Allouer(@RequestParam Long id_client,Long id_voiture){

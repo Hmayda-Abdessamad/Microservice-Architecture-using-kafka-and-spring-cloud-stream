@@ -17,6 +17,6 @@ public class Voiture {
     private String marque;
     private String matricule;
     private String model;
-    private Long id_client;
+    private Long id_client= 0L;
 
 }

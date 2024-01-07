@@ -1,0 +1,129 @@
+   
+
+
+
+<div class="card ">
+    <div class="card-head">
+     
+        <ol class="breadcrumb fs-5 d-flex  justify-content-between">
+          <i class="fa-solid fa-circle-plus" data-bs-toggle="modal" data-bs-target="#ajout"> Nouveau Client</i>
+        </ol>
+     
+    </div>
+    <div class="card-body">
+      <div *ngIf="!clients || clients.length<=0" class="container-fluid alert alert-warning text-center mb-3"  role="alert">
+        Aucun client 
+      </div>
+        <table class="table  table-light ">
+            <thead class="text-center">
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Age</th>
+                <th scope="col">Nombre de voiture</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let client of clients">
+                <th scope="row">{{client.id}}</th>
+                <td>{{client.nom}}</td>
+                <td>{{client.prenom}}</td>
+                <td>{{client.age}}</td>
+                <td ><span class="badge badge-width rounded-pill fs-5 bg-warning">1</span></td>
+                <td class="d-flex gap-2 justify-content-center">
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#voitures" (click)="voitureParClient(client.id)" class="btn btn-secondary rounded-pill">Voitures</button>
+                  <a>
+                    <i (click)="SuppClient(client.id)"  class="fa-solid fa-trash fs-1"></i>
+                  </a>
+                </td>
+              </tr>
+          
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
+<!--   Modal d ajout de client  -->
+<div class="modal fade" id="ajout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">L'ajout d'un nouveau client</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="AddForm"  (ngSubmit)="onSubmit()">
+         
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Nom:</label>
+            <input type="text" formControlName="nom" class="form-control" id="recipient-name">
+            <div *ngIf="  AddForm.get('nom')?.invalid && (AddForm.get('nom')?.dirty || AddForm.get('nom')?.touched)">
+              <p class="text-danger">vueillez saisir le nom de votre client </p>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Prenom:</label>
+            <input type="text" formControlName="prenom" class="form-control" id="recipient-name">
+            <div *ngIf="  AddForm.get('prenom')?.invalid && (AddForm.get('prenom')?.dirty || AddForm.get('prenom')?.touched)">
+              <p class="text-danger">vueillez saisir le prenom de votre client </p>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Age:</label>
+            <input type="number" formControlName="age" class="form-control" id="recipient-name">
+            <div *ngIf="  AddForm.get('age')?.invalid && (AddForm.get('age')?.dirty || AddForm.get('age')?.touched)">
+              <p class="text-danger">vueillez saisir l'age de votre client </p>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Ajouter</button>
+          </div>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--   Modal voir les voitures par  client  -->
+<div class="modal fade" id="voitures" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h5 class="modal-title" *ngIf="selectedClient" id="staticBackdropLabel">Les voiture de {{selectedClient.nom+" "+selectedClient.prenom}} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+        <div class="accordion" *ngIf="voitures" id="accordionExample">
+
+        
+
+          <div class="accordion-item mb-2" *ngFor="let voiture of voitures">
+
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                {{voiture.marque +" " + voiture.model}}
+              </button>
+            </h2>
+
+           
+          </div>
+      
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
